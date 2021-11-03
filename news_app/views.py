@@ -104,7 +104,7 @@ def message(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "테스트 성공입니다!"
+                        'text': "테스트 성공"
                     }
                 }],
                 'quickReplies': [{
