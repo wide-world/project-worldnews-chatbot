@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-
 def keyboard(request):
     return JsonResponse({
         'type': 'text'
@@ -14,7 +13,7 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-   
+    
     # 뉴스 스크래핑 txt 파일 읽어오기
     bbc_path = '/home/ubuntu/main/news_app/bbc.txt'
     bbc_fp = open(bbc_path, 'r', encoding = 'utf-8')
@@ -23,6 +22,7 @@ def message(request):
         tmp_str += line
     tmp_str = tmp_str.strip('\n')
     bbc_list = list(tmp_str.split('\n'))
+    print(bbc_list[0])
     bbc_fp.close()
     
     euro_path = '/home/ubuntu/main/news_app/euro.txt'

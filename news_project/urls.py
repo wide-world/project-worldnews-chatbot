@@ -21,5 +21,6 @@ from news_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^keyboard/?$', views.keyboard),
-    url(r'^message', views.message)
+    url(r'^message', views.message),
+    #url(r'^message', views.scrape_news)
 ]

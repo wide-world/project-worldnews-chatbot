@@ -13,7 +13,7 @@ def scrape_news():
     if os.path.exists('euro.txt'):
         os.remove('euro.txt')
 
-    print("[news]")
+    print("EURO")
     url = "https://www.euronews.com/programs/world"
     res = requests.get(url, headers={'User-Agent':'Mozilla/5.0'})
     res.raise_for_status()
@@ -30,7 +30,6 @@ def scrape_news():
     euro_fp = open('euro.txt','w',encoding='utf-8')
     for i in range(len(arr)):
         euro_fp.writelines(arr[i])
-    print()
 
 if __name__ == "__main__":
     scrape_news()

@@ -21,7 +21,7 @@ def scrape_news():
     if os.path.exists('alj.txt'):
         os.remove('alj.txt')
 
-    print("[news]")
+    print("ALJ")
     url = "https://www.aljazeera.com"
     res = requests.get(url, headers={'User-Agent' : 'Mozilla/5.0'})
     res.raise_for_status()

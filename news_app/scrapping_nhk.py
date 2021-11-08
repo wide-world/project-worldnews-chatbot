@@ -28,6 +28,7 @@ def scrape_image_link(url, link_arr, title_arr):
     driver.close()
 
 def scrape_news():
+    print("NHK")
     if os.path.exists('nhk.txt'):
         os.remove('nhk.txt')
 
