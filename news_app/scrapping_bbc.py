@@ -49,7 +49,6 @@ def scrape_news():
         bbc_fp.writelinkes(image_link(i))
     
     bbc_fp.close()
-    print("BBC")
 
 if __name__ == "__main__":
     scrape_news()
