@@ -21,10 +21,6 @@ def scrape_image_link(link, image_link):
 
 
 def scrape_news():
-    if os.path.exists('bbc.txt'):
-        os.remove('bbc.txt')
-
-    print("BBC")
     url = "https://www.bbc.com/news"
     res = requests.get(url, headers={'User-Agent':'Mozilla/5.0'})
     res.raise_for_status()
@@ -42,13 +38,18 @@ def scrape_news():
         #print("{}. {}".format(index+1, title))
         #print(" (링크) : {})".format(link))
 
+    if os.path.exists('bbc.txt'):
+        os.remove('bbc.txt')
+
     bbc_fp = open('bbc.txt','w',encoding='utf-8')
     for i in range(len(arr)):
         bbc_fp.writelines(arr[i])
 
     for i in range(len(image_link)):
         bbc_fp.writelinkes(image_link(i))
+    
     bbc_fp.close()
+    print("BBC")
 
 if __name__ == "__main__":
     scrape_news()

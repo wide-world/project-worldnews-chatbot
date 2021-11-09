@@ -10,10 +10,6 @@ def create_soup(url):
     return soup
 
 def scrape_news():
-    if os.path.exists('euro.txt'):
-        os.remove('euro.txt')
-
-    print("EURO")
     url = "https://www.euronews.com/programs/world"
     res = requests.get(url, headers={'User-Agent':'Mozilla/5.0'})
     res.raise_for_status()
@@ -27,9 +23,14 @@ def scrape_news():
         link = url.replace('/programs/world', '') + news.find("a")["href"]
         arr.append(title + '\n' + link + '\n')
     
+    if os.path.exists('euro.txt'):
+        os.remove('euro.txt')
+    
     euro_fp = open('euro.txt','w',encoding='utf-8')
     for i in range(len(arr)):
         euro_fp.writelines(arr[i])
+    
+    print("EURO")
 
 if __name__ == "__main__":
     scrape_news()

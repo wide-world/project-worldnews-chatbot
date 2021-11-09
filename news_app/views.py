@@ -54,7 +54,7 @@ def message(request):
     
 
     # 사용자의 발화에 따라 카카오에 출력
-    if return_str == 'bbc' or return_str == 'BBC':
+    if return_str == 'bbc' or return_str == 'BBC' or return_str == 'Bbc' or return_str == '비비씨' or return_str == '비비시':
         return JsonResponse({
             'version': "2.0",
             'template': {
@@ -122,7 +122,7 @@ def message(request):
             }
         })
      
-    if return_str == 'euro' or return_str == 'EURO':
+    if return_str == 'euro' or return_str == 'EURO' or return_str == 'Euro' or return_str == 'euronews' or return_str == 'euro-news':
         return JsonResponse({
             'version': "2.0",
             'template': {
@@ -190,7 +190,7 @@ def message(request):
             }
         })
     
-    if return_str == 'aljazeera' or return_str == 'alj' or return_str == 'ALJ' or return_str == '알자지라':
+    if return_str == 'Aljazeera' or return_str == 'aljazeera' or return_str == 'ALJAZEERA' or return_str == 'alj' or return_str == 'ALJ' or return_str == 'Alj' or return_str == '알자지라':
         return JsonResponse({
             'version': "2.0",
             'template': {
@@ -258,7 +258,7 @@ def message(request):
             }
         })
     
-    if return_str == 'nhk' or return_str == 'NHK' or return_str == 'JAPAN':
+    if return_str == 'nhk' or return_str == 'NHK' or return_str == 'Nhk' or return_str == 'nhk japan' or return_str == 'japan' or return_str == 'JAPAN':
         return JsonResponse({
             'version': "2.0",
             'template': {
