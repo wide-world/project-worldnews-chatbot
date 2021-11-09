@@ -28,19 +28,20 @@ def scrape_image_link(url, link_arr, title_arr):
     driver.close()
 
 def scrape_news():
-    print("NHK")
-    if os.path.exists('nhk.txt'):
-        os.remove('nhk.txt')
-
     title_arr=[]
     link_arr=[]
     link = "https://www3.nhk.or.jp/nhkworld/en/news/"
     scrape_image_link(link, link_arr, title_arr)
 
+    if os.path.exists('nhk.txt'):
+        os.remove('nhk.txt')
+    
     nhk_fp = open('nhk.txt','w',encoding='utf-8')
     for i in range(len(title_arr)):
         nhk_fp.writelines(title_arr[i] + '\n')
         nhk_fp.writelines(link_arr[i] + '\n')
+    
+    print("NHK")
 
 if __name__ == "__main__":
     scrape_news()

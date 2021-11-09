@@ -18,10 +18,6 @@ def scrape_image_link(link, image_link, url):
 
 
 def scrape_news():
-    if os.path.exists('alj.txt'):
-        os.remove('alj.txt')
-
-    print("ALJ")
     url = "https://www.aljazeera.com"
     res = requests.get(url, headers={'User-Agent' : 'Mozilla/5.0'})
     res.raise_for_status()
@@ -38,11 +34,16 @@ def scrape_news():
         scrape_image_link(link, image_link, url)
         arr.append(title + '\n' + link + '\n')
 
+    if os.path.exists('alj.txt'):
+        os.remove('alj.txt')
+
     alj_fp = open('alj.txt', 'w', encoding='utf-8')
     for i in range(len(arr)):
         alj_fp.writelines(arr[i])
     for i in range(len(image_link)):
         alj_fp.writelines(image_link[i])
+
+    print("ALJ")
 
 if __name__ == "__main__":
     scrape_news()
