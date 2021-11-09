@@ -45,5 +45,7 @@ def scrape_news():
     
     alj_fp.close()
 
+    print("ALJ")
+
 if __name__ == "__main__":
     scrape_news()
