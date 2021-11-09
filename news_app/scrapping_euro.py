@@ -30,7 +30,7 @@ def scrape_news():
     for i in range(len(arr)):
         euro_fp.writelines(arr[i])
     
-    print("EURO")
+    euro_fp.close()
 
 if __name__ == "__main__":
     scrape_news()

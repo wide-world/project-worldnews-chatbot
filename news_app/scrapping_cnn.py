@@ -93,8 +93,8 @@ def scrape_news():
         cnn_fp.writelines(link_arr + '\n')
     #for i in range(len(image_link)):
     #    cnn_fp.writelines(image_link[i])
-
-    print("CNN")
+    
+    cnn_fp.close()
         
 if __name__ == "__main__":
     scrape_news()

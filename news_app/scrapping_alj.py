@@ -42,8 +42,8 @@ def scrape_news():
         alj_fp.writelines(arr[i])
     for i in range(len(image_link)):
         alj_fp.writelines(image_link[i])
-
-    print("ALJ")
+    
+    alj_fp.close()
 
 if __name__ == "__main__":
     scrape_news()

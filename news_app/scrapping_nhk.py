@@ -40,8 +40,7 @@ def scrape_news():
     for i in range(len(title_arr)):
         nhk_fp.writelines(title_arr[i] + '\n')
         nhk_fp.writelines(link_arr[i] + '\n')
-    
-    print("NHK")
+    nhk_fp.close()
 
 if __name__ == "__main__":
     scrape_news()
