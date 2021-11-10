@@ -52,6 +52,14 @@ def message(request):
     nhk_list = list(tmp_str.split('\n'))
     nhk_fp.close()
     
+    cnn_path = '/home/ubuntu/main/news_app/cnn.txt'
+    cnn_fp = open(cnn_path, 'r', encoding = 'utf-8')
+    tmp_str=''
+    for line in cnn_fp.readlines():
+        tmp_str += line
+    tmp_str = tmp_str.strip('\n')
+    cnn_list = list(tmp_str.split('\n'))
+    cnn_fp.close()
 
     # 사용자의 발화에 따라 카카오에 출력
     if return_str == 'bbc' or return_str == 'BBC' or return_str == 'Bbc' or return_str == '비비씨' or return_str == '비비시':
@@ -122,6 +130,74 @@ def message(request):
             }
         })
      
+    if return_str == 'cnn' or return_str == 'CNN' or return_str == 'cnn news' or return_str == 'CNN News' or return_str == 'Cnn':
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    "listCard": {
+                        "header": {
+                            "title": "CNN News Most Read"
+                        },
+                        "items": [
+                            {
+                                "title": cnn_list[0],
+                                #"description": "",
+                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "link": {
+                                    "web": cnn_list[1]
+                                }
+                            },
+                            {
+                                "title": cnn_list[2],
+                                #"description": "",
+                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "link": {
+                                    "web": cnn_list[3]
+                                }
+                            },
+                            {
+                                "title": cnn_list[4],
+                                #"description": "",
+                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "link": {
+                                    "web": cnn_list[5]
+                                }
+                            },
+                            {
+                                "title": cnn_list[6],
+                                #"description": "",
+                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "link": {
+                                    "web": cnn_list[7]
+                                }
+                            },
+                            {
+                                "title": cnn_list[8],
+                                #"description": "",
+                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "link": {
+                                    "web": cnn_list[9]
+                                }
+                            },
+                        ],
+                        "buttons": [
+                            {
+                                "label": "홈페이지",
+                                "action": "webLink",
+                                "webLinkUrl": "https://edition.cnn.com/"
+                            }
+                        ]
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '초기 화면',
+                    'action': 'message',
+                    'messageText': '초기 화면'
+                }]
+            }
+        })
+
     if return_str == 'euro' or return_str == 'EURO' or return_str == 'Euro' or return_str == 'euronews' or return_str == 'euro-news':
         return JsonResponse({
             'version': "2.0",

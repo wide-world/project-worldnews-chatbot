@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from pyvirtualdisplay import Display
 import time
 
@@ -13,88 +14,75 @@ display = Display(visible=0, size=(1920, 1080))
 display.start()
 
 path = '/home/ubuntu/chromedriver'
-driver = webdriver.Chrome(path)
+s=Service(path)
+driver = webdriver.Chrome(service=s)
 
-#def scrape_all(url, link_arr, title_arr, image_link):
-def scrape_all(url, link_arr, title_arr):
+#driver = webdriver.Chrome(path)
+
+def scrape_all(url, link_arr, title_arr, image_link):
     driver.get(url)
 
     #1
-    depth_1 = driver.find_element(By.CLASS_NAME, "cn-list-hierarchical-xs")
-    depth_2 = depth_1.find_element(By.CLASS_NAME, "banner-text")
-    depth_2_2 = depth_1.find_element(By.TAG_NAME,'a')
-    #depth_3 = depth_2_2.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[1]/ul/li[1]/article/div/div[1]/a/img')
-    #img = depth_3.get_attribute('src')
-
-    link = depth_2_2.get_attribute('href')
-    title = depth_2.text
-    link_arr.append(link)
-    title_arr.append(title)
-    #image_link.append(img)
+    try:
+        link = driver.find_element(By.XPATH, '//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[3]/article/div/div/h3/a').get_attribute('href')
+        title = driver.find_element(By.XPATH,'//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[3]/article/div/div/h3/a/span[2]').text
+        link_arr.append(link)
+        title_arr.append(title)
+    except:
+        image_link.append(1)
 
     #2
-    depth_1 = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[1]/article/div/div[2]/h3')
-    depth_2 = depth_1.find_element(By.TAG_NAME, "a")
-    depth_3 = depth_2.find_element(By.XPATH,'//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[1]/article/div/div[2]/h3/a/span[2]')
-
-    #before_img = driver.find_element(By.XPATH,'//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[1]/article/div/div[1]/a/img')
-    #img = before_img.get_attribute('src')
-    #image_link.append(img)
-
-    title = depth_3.text
-    title_arr.append(title)
-
-    link = depth_2.get_attribute('href')
-    link_arr.append(link)
+    try:
+        link = driver.find_element(By.XPATH,'//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[4]/article/div/div/h3/a').get_attribute('href')
+        title = driver.find_element(By.XPATH,'//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[4]/article/div/div/h3/a/span[1]').text
+        link_arr.append(link)
+        title_arr.append(title)
+    except:
+        image_link.append(1)
 
     #3
-    depth_1 = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[2]/article/div/div[2]/h3/a/span[2]')
-    title = depth_1.text
-    title_arr.append(title)
-
-    before_link = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[2]/article/div/div[2]/h3/a')
-    link = before_link.get_attribute('href')
-    link_arr.append(link)
-
-    #before_img = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[2]/article/div/div[1]/a/img')
-    #img = before_img.get_attribute('data-src-small')
-    #image_link.append(img)
+    try:
+        link = driver.find_element(By.XPATH,'//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[5]/article/div/div/h3/a').get_attribute('href')
+        title = driver.find_element(By.XPATH,'//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[5]/article/div/div/h3/a/span[1]').text
+        link_arr.append(link)
+        title_arr.append(title)
+    except:
+        image_link.append(1)
 
     #4
-    before_title = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[3]/ul/li[1]/article/div/div[2]/h3/a/span[2]')
-    title = before_title.text
-    title_arr.append(title)
+    try:
+        link = driver.find_element(By.XPATH, '//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[6]/article/div/div/h3/a').get_attribute('href')
+        title = driver.find_element(By.XPATH, '//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[6]/article/div/div/h3/a/span[1]').text
+        link_arr.append(link)
+        title_arr.append(title)
+    except:
+        image_link.append(1)
 
-    before_link = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[3]/ul/li[1]/article/div/div[2]/h3/a')
-    link = before_link.get_attribute('href')
-    link_arr.append(link)
-
-    #before_img = driver.find_element(By.XPATH, '//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[3]/ul/li[1]/article/div/div[1]/a/img')
-    #img = before_img.get_attribute('src')
-    #image_link.append(img)
-
+    #4
+    try:
+        link = driver.find_element(By.XPATH, '//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[7]/article/div/div/h3/a').get_attribute('href')
+        title = driver.find_element(By.XPATH, '//*[@id="intl_homepage-injection-zone-1"]/div[2]/div/div/div/ul/li[7]/article/div/div/h3/a/span[1]').text
+        link_arr.append(link)
+        title_arr.append(title)
+    except:
+        image_link.append(1)
+    
     driver.close()
 
 def scrape_news():
     title_arr=[]
     link_arr=[]
     image_link=[]
-
     link = "https://edition.cnn.com/"
-    #scrape_all(link, link_arr, title_arr, image_link)
-    scrape_all(link, link_arr, title_arr)
-
-    if os.path.exists('cnn.txt'):
-        os.remove('cnn.txt')
+    scrape_all(link, link_arr, title_arr, image_link)
+    # print(image_link)
 
     cnn_fp = open('cnn.txt', 'w', encoding='utf-8')
     for i in range(len(title_arr)):
         cnn_fp.writelines(title_arr[i] + '\n')
-        cnn_fp.writelines(link_arr + '\n')
+        cnn_fp.writelines(link_arr[i] + '\n')
     #for i in range(len(image_link)):
     #    cnn_fp.writelines(image_link[i])
-    
-    cnn_fp.close()
-        
+
 if __name__ == "__main__":
     scrape_news()
