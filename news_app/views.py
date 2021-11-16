@@ -75,7 +75,7 @@ def message(request):
                             {
                                 "title": bbc_list[0],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": bbc_list[20],
                                 "link": {
                                     "web": bbc_list[1]
                                 }
@@ -83,7 +83,7 @@ def message(request):
                             {
                                 "title": bbc_list[2],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": bbc_list[21],
                                 "link": {
                                     "web": bbc_list[3]
                                 }
@@ -91,7 +91,7 @@ def message(request):
                             {
                                 "title": bbc_list[4],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": bbc_list[22],
                                 "link": {
                                     "web": bbc_list[5]
                                 }
@@ -99,7 +99,7 @@ def message(request):
                             {
                                 "title": bbc_list[6],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": bbc_list[23],
                                 "link": {
                                     "web": bbc_list[7]
                                 }
@@ -107,7 +107,7 @@ def message(request):
                             {
                                 "title": bbc_list[8],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": bbc_list[24],
                                 "link": {
                                     "web": bbc_list[9]
                                 }
@@ -143,7 +143,7 @@ def message(request):
                             {
                                 "title": cnn_list[0],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": cnn_list[8],
                                 "link": {
                                     "web": cnn_list[1]
                                 }
@@ -151,7 +151,7 @@ def message(request):
                             {
                                 "title": cnn_list[2],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": cnn_list[9],
                                 "link": {
                                     "web": cnn_list[3]
                                 }
@@ -159,7 +159,7 @@ def message(request):
                             {
                                 "title": cnn_list[4],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": cnn_list[10],
                                 "link": {
                                     "web": cnn_list[5]
                                 }
@@ -167,19 +167,11 @@ def message(request):
                             {
                                 "title": cnn_list[6],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": cnn_list[11],
                                 "link": {
                                     "web": cnn_list[7]
                                 }
-                            },
-                            {
-                                "title": cnn_list[8],
-                                #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
-                                "link": {
-                                    "web": cnn_list[9]
-                                }
-                            },
+                            }
                         ],
                         "buttons": [
                             {
@@ -211,7 +203,7 @@ def message(request):
                             {
                                 "title": euro_list[0],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": euro_list[10],
                                 "link": {
                                     "web": euro_list[1]
                                 }
@@ -219,7 +211,7 @@ def message(request):
                             {
                                 "title": euro_list[2],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": euro_list[11],
                                 "link": {
                                     "web": euro_list[3]
                                 }
@@ -227,7 +219,7 @@ def message(request):
                             {
                                 "title": euro_list[4],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": euro_list[12],
                                 "link": {
                                     "web": euro_list[5]
                                 }
@@ -235,7 +227,7 @@ def message(request):
                             {
                                 "title": euro_list[6],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": euro_list[13],
                                 "link": {
                                     "web": euro_list[7]
                                 }
@@ -243,7 +235,7 @@ def message(request):
                             {
                                 "title": euro_list[8],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": euro_list[14],
                                 "link": {
                                     "web": euro_list[9]
                                 }
@@ -347,7 +339,7 @@ def message(request):
                             {
                                 "title": nhk_list[0],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": nhk_list[10],
                                 "link": {
                                     "web": nhk_list[1]
                                 }
@@ -355,7 +347,7 @@ def message(request):
                             {
                                 "title": nhk_list[2],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": nhk_list[11],
                                 "link": {
                                     "web": nhk_list[3]
                                 }
@@ -363,7 +355,7 @@ def message(request):
                             {
                                 "title": nhk_list[4],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": nhk_list[12],
                                 "link": {
                                     "web": nhk_list[5]
                                 }
@@ -371,7 +363,7 @@ def message(request):
                             {
                                 "title": nhk_list[6],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": nhk_list[13],
                                 "link": {
                                     "web": nhk_list[7]
                                 }
@@ -379,7 +371,7 @@ def message(request):
                             {
                                 "title": nhk_list[8],
                                 #"description": "",
-                                #"imageUrl": "http://k.kakaocdn.net/dn/APR96/btqqH7zLanY/kD5mIPX7TdD2NAxgP29cC0/1x1.jpg",
+                                "imageUrl": nhk_list[14],
                                 "link": {
                                     "web": nhk_list[9]
                                 }
