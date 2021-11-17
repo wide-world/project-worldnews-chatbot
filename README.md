@@ -1,2 +1,2 @@
 # WorldNews-Notification-Bot
-해외 뉴스 소식알리미
+Kakao i open builder를 활용한 카카오톡 해외 뉴스 알리미
