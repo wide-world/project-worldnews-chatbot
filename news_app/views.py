@@ -122,11 +122,23 @@ def message(request):
                         ]
                     }
                 }],
-                'quickReplies': [{
-                    'label': '초기 화면',
-                    'action': 'message',
-                    'messageText': '초기 화면'
-                }]
+                'quickReplies': [
+                    {
+                        'label': '초기 화면',
+                        'action': 'message',
+                        'messageText': '초기 화면'
+                    },
+                    {
+                        'label': '초기',
+                        'action': 'message',
+                        'messageText': '초기'
+                    },
+                    {
+                        'label': '초기 화면',
+                        'action': 'message',
+                        'messageText': '초기 화면'
+                    },  
+                ]
             }
         })
      
@@ -190,7 +202,7 @@ def message(request):
             }
         })
 
-    if return_str == 'euro' or return_str == 'EURO' or return_str == 'Euro' or return_str == 'euronews' or return_str == 'euro-news':
+    if return_str == 'euro' or return_str == 'EURO' or return_str == 'Euro' or return_str == 'Euronews' or return_str == 'Euro-news' or return_str == 'euronews' or return_str == 'euro-news':
         return JsonResponse({
             'version': "2.0",
             'template': {
