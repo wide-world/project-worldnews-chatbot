@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import sys
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -16,6 +17,17 @@ def create_soup(url):
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
     return soup
+
+def scrape_text(url,article):
+    res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "lxml")
+    depth_1 = soup.find_all("div", attrs={"class": "zn-body__paragraph"})
+    tmp=[]
+    for news in depth_1:
+        text=news.get_text().strip()
+        tmp.append(text)
+    article.append(tmp)
 
 def scrape_links(url,title_arr,link_arr, image_arr):
     display = Display(visible=0, size=(1920, 1080))
@@ -38,7 +50,10 @@ def scrape_links(url,title_arr,link_arr, image_arr):
         except:
             image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
     except:
-        pass
+        title_arr.append("Home Page")
+        link_arr.append(url)
+        image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
+
 
     #2
     try:
@@ -52,8 +67,10 @@ def scrape_links(url,title_arr,link_arr, image_arr):
         except:
             image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
     except:
-        pass
-    
+        title_arr.append("Home Page")
+        link_arr.append(url)
+        image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
+
     #3
     try:
         link = driver.find_element(By.XPATH,'//*[@id="intl_homepage1-zone-1"]/div[2]/div/div[2]/ul/li[2]/article/div/div[2]/h3/a').get_attribute('href')
@@ -66,7 +83,9 @@ def scrape_links(url,title_arr,link_arr, image_arr):
         except:
             image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
     except:
-        pass
+        title_arr.append("Home Page")
+        link_arr.append(url)
+        image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
 
     #4
     try:
@@ -80,8 +99,10 @@ def scrape_links(url,title_arr,link_arr, image_arr):
         except:
             image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
     except:
-        pass
-    
+        title_arr.append("Home Page")
+        link_arr.append(url)
+        image_arr.append('https://i.pinimg.com/736x/0a/3e/3f/0a3e3f002bfd508b0a8cb0b15e3ae284.jpg')
+
     driver.quit()
     display.stop()
 
@@ -91,9 +112,9 @@ def scrape_news():
     title_arr=[]
     link_arr=[]
     image_arr=[]
-    
+    article=[]
     scrape_links(url,title_arr,link_arr,image_arr)
-    
+
     if os.path.exists('cnn.txt'):
         os.remove('cnn.txt')
 
@@ -104,8 +125,21 @@ def scrape_news():
     for i in range(len(image_arr)):
         cnn_fp.writelines(image_arr[i] + '\n')
 
+    for link in link_arr:
+        scrape_text(link, article)
+
+    if os.path.exists('contents/scrapping/cnncontent.txt'):
+        os.remove('contents/scrapping/cnncontent.txt')
+    text_fp = open('contents/scrapping/cnncontent.txt', 'w', encoding='utf-8')
+    for i in range(len(article)):
+        text_fp.writelines(str(article[i]) + '\n')
+
+    text_fp.close()
     cnn_fp.close()
 
 
 if __name__ == "__main__":
     scrape_news()
+
+
+
