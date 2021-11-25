@@ -54,16 +54,34 @@ def scrape_link(url, link_arr, title_arr):
     driver.quit()
     display.stop()
 
+def scrape_text(url,article):
+    res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "lxml")
+    depth_1 = soup.find("div", attrs={"class": "p-article__body"}).find_all("p")
+    tmp=[]
+    for news in depth_1:
+        text = news.get_text().strip()
+        text = ' '.join(text.split('\n'))
+        tmp.append(text)
+    tmp.append('\n')
+    article.append(tmp)
 
 def scrape_news():
     title_arr=[]
     link_arr=[]
     image_arr=[]
+    article=[]
     link = "https://www3.nhk.or.jp/nhkworld/en/news/"
+
     scrape_link(link, link_arr, title_arr)
 
     for link in link_arr:
         scrape_image_link(link, image_arr)
+
+    for link in link_arr:
+        scrape_text(link,article)
+
     if os.path.exists('nhk.txt'):
         os.remove('nhk.txt')
 
@@ -74,6 +92,13 @@ def scrape_news():
     for i in range(len(image_arr)):
         nhk_fp.writelines(image_arr[i] + '\n')
 
+    if os.path.exists('contents/scrapping/nhkcontent.txt'):
+        os.remove('contents/scrapping/nhkcontent.txt')
+    text_fp = open('contents/scrapping/nhkcontent.txt', 'w', encoding='utf-8')
+    for i in range(len(article)):
+        text_fp.writelines(article[i])
+
+    text_fp.close()
     nhk_fp.close()
 
 if __name__ == "__main__":

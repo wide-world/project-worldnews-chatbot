@@ -22,12 +22,18 @@ def scrape_text(url,article):
     res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
-    depth_1 = soup.find_all("div", attrs={"class": "zn-body__paragraph"})
-    tmp=[]
-    for news in depth_1:
-        text=news.get_text().strip()
-        tmp.append(text)
-    article.append(tmp)
+    try:
+        depth_1 = soup.find_all("div", attrs={"class": "zn-body__paragraph"})
+        tmp=[]
+        for news in depth_1:
+            text=news.get_text().strip()
+            tmp.append(text)
+        tmp.append('\n')
+        article.append(tmp)
+    except:
+        tmp=[]
+        tmp.append('Failed to get content!\n')
+        article.append(tmp)
 
 def scrape_links(url,title_arr,link_arr, image_arr):
     display = Display(visible=0, size=(1920, 1080))
@@ -132,7 +138,7 @@ def scrape_news():
         os.remove('contents/scrapping/cnncontent.txt')
     text_fp = open('contents/scrapping/cnncontent.txt', 'w', encoding='utf-8')
     for i in range(len(article)):
-        text_fp.writelines(str(article[i]) + '\n')
+        text_fp.writelines(article[i])
 
     text_fp.close()
     cnn_fp.close()
