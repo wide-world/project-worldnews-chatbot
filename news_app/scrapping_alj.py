@@ -16,13 +16,18 @@ def scrape_image_link(link, image_link, url):
 
 def scrape_content(link, article):
     soup = create_soup(link)
-    news_content = soup.find("div", attrs={"class" : "wysiwyg wysiwyg--all-content css-1vsenwb"}).find_all("p")
     tmp=[]
-    for index, news in enumerate(news_content):
-        text = news.get_text().strip()
-        tmp.append(text)
-    tmp.append('\n')
-    article.append(tmp)
+    try:
+        news_content = soup.find("div", attrs={"class" : "wysiwyg wysiwyg--all-content css-1vsenwb"}).find_all("p")       
+        
+        for news in news_content:
+            text = news.get_text().strip()
+            tmp.append(text)
+        tmp.append('\n')
+        article.append(tmp)
+    except:
+        tmp.append("Failed to get content!\n")
+        article.append(tmp);
 
 def scrape_news():
     url = "https://www.aljazeera.com"
@@ -35,7 +40,7 @@ def scrape_news():
     news_link=[]
     image_link=[]
     article=[]
-    for index, news in enumerate(news_list):
+    for news in news_list:
         title = news.find("span").get_text().strip()
         link = url + news.find("a")["href"]
         scrape_image_link(link, image_link, url)
