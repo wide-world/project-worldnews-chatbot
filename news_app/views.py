@@ -185,7 +185,7 @@ def message(request):
     tmp_str = tmp_str.strip('\n')
     nhk_t_list = list(tmp_str.split('\n'))
     nhkt_fp.close()
-    """
+    
     euro_translation = '/home/ubuntu/main/news_app/contents/translation/eurotranslation.txt'
     eurot_fp = open(euro_translation, 'r', encoding = 'utf-8')
     tmp_str=''
@@ -194,7 +194,7 @@ def message(request):
     tmp_str = tmp_str.strip('\n')
     euro_t_list = list(tmp_str.split('\n'))
     eurot_fp.close()
-    """
+    
     # 사용자의 발화에 따라 카카오에 출력
     if return_str == 'bbc' or return_str == 'BBC' or return_str == 'Bbc' or return_str == '비비씨' or return_str == '비비시':
         return JsonResponse({
@@ -257,6 +257,11 @@ def message(request):
                     }
                 }],
                 'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
                     {
                         "action": "block",
                         "messageText": "BBC요약1",
@@ -376,6 +381,11 @@ def message(request):
                 'quickReplies': [
                     {
                         "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
+                    {
+                        "action": "block",
                         "messageText": "CNN요약1",
                         "blockId": "61682be94687a505ab3be73a",
                         "label": "요약1"
@@ -487,7 +497,12 @@ def message(request):
                     }
                 }],
                 'quickReplies': [
-                     { 
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
+                    { 
                         "action": "block",
                         "messageText": "EURO요약1",
                         "blockId": "61682be94687a505ab3be73a",
@@ -612,7 +627,12 @@ def message(request):
                     }
                 }],
                 'quickReplies': [
-                     {   "action": "block",
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
+                    {   "action": "block",
                         "messageText": "ALJ요약1",
                         "blockId": "61682be94687a505ab3be73a",
                         "label": "요약1"
@@ -736,7 +756,12 @@ def message(request):
                     }
                 }],
                 'quickReplies': [
-                     {   "action": "block",
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
+                    {   "action": "block",
                         "messageText": "NHK요약1",
                         "blockId": "61682be94687a505ab3be73a",
                         "label": "요약1"
@@ -853,9 +878,9 @@ def message(request):
                 }],
                 'quickReplies': [
                     {
-                        'label': '초기 화면',
-                        'action': 'message',
-                        'messageText': '초기 화면'
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -915,9 +940,9 @@ def message(request):
                 }],
                 'quickReplies': [
                     {
-                        'label': '초기 화면',
-                        'action': 'message',
-                        'messageText': '초기 화면'
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -977,10 +1002,10 @@ def message(request):
                 }],
                 'quickReplies': [
                     {
-                        'label': '초기 화면',
-                        'action': 'message',
-                        'messageText': '초기 화면'
-                    }
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    },
                 ]
             }
         })
@@ -1039,9 +1064,9 @@ def message(request):
                 }],
                 'quickReplies': [
                     {
-                        'label': '초기 화면',
-                        'action': 'message',
-                        'messageText': '초기 화면'
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1101,9 +1126,9 @@ def message(request):
                 }],
                 'quickReplies': [
                     {
-                        'label': '초기 화면',
-                        'action': 'message',
-                        'messageText': '초기 화면'
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1119,6 +1144,13 @@ def message(request):
                             "text": bbc_s_list[0]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1132,6 +1164,13 @@ def message(request):
                         "simpleText": {
                             "text": bbc_s_list[1]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1147,6 +1186,13 @@ def message(request):
                             "text": bbc_s_list[2]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1160,6 +1206,13 @@ def message(request):
                         "simpleText": {
                             "text": bbc_s_list[3]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1175,6 +1228,13 @@ def message(request):
                             "text": bbc_s_list[4]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1188,6 +1248,13 @@ def message(request):
                         "simpleText": {
                             "text": cnn_s_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1203,6 +1270,13 @@ def message(request):
                             "text": cnn_s_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1216,6 +1290,13 @@ def message(request):
                         "simpleText": {
                             "text": cnn_s_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1231,6 +1312,13 @@ def message(request):
                             "text": cnn_s_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1244,6 +1332,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_s_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1259,6 +1354,13 @@ def message(request):
                             "text": alj_s_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1272,6 +1374,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_s_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1287,6 +1396,13 @@ def message(request):
                             "text": alj_s_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1300,6 +1416,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_s_list[4]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1315,6 +1438,13 @@ def message(request):
                             "text": nhk_s_list[0]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1328,6 +1458,13 @@ def message(request):
                         "simpleText": {
                             "text": nhk_s_list[1]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1343,6 +1480,13 @@ def message(request):
                             "text": nhk_s_list[2]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1356,6 +1500,13 @@ def message(request):
                         "simpleText": {
                             "text": nhk_s_list[3]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1371,6 +1522,13 @@ def message(request):
                             "text": nhk_s_list[4]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1384,6 +1542,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_s_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1399,6 +1564,13 @@ def message(request):
                             "text": euro_s_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1412,6 +1584,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_s_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1427,6 +1606,13 @@ def message(request):
                             "text": euro_s_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1440,6 +1626,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_s_list[4]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1455,6 +1648,13 @@ def message(request):
                             "text": bbc_t_list[0]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1468,6 +1668,13 @@ def message(request):
                         "simpleText": {
                             "text": bbc_t_list[1]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1483,6 +1690,13 @@ def message(request):
                             "text": bbc_t_list[2]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1496,6 +1710,13 @@ def message(request):
                         "simpleText": {
                             "text": bbc_t_list[3]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1511,6 +1732,13 @@ def message(request):
                             "text": bbc_t_list[4]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1524,6 +1752,13 @@ def message(request):
                         "simpleText": {
                             "text": cnn_t_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1539,6 +1774,13 @@ def message(request):
                             "text": cnn_t_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1552,6 +1794,13 @@ def message(request):
                         "simpleText": {
                             "text": cnn_t_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1567,6 +1816,13 @@ def message(request):
                             "text": cnn_t_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1580,6 +1836,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_t_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1595,6 +1858,13 @@ def message(request):
                             "text": alj_t_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1608,6 +1878,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_t_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1623,6 +1900,13 @@ def message(request):
                             "text": alj_t_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1636,6 +1920,13 @@ def message(request):
                         "simpleText": {
                             "text": alj_t_list[4]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1651,6 +1942,13 @@ def message(request):
                             "text": nhk_t_list[0]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1664,6 +1962,13 @@ def message(request):
                         "simpleText": {
                             "text": nhk_t_list[1]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1679,6 +1984,13 @@ def message(request):
                             "text": nhk_t_list[2]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1692,6 +2004,13 @@ def message(request):
                         "simpleText": {
                             "text": nhk_t_list[3]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1707,6 +2026,13 @@ def message(request):
                             "text": nhk_t_list[4]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1720,6 +2046,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_t_list[0]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1735,6 +2068,13 @@ def message(request):
                             "text": euro_t_list[1]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1748,6 +2088,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_t_list[2]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
@@ -1763,6 +2110,13 @@ def message(request):
                             "text": euro_t_list[3]
                         }
                     }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
+                    }
                 ]
             }
         })
@@ -1776,6 +2130,13 @@ def message(request):
                         "simpleText": {
                             "text": euro_t_list[4]
                         }
+                    }
+                ],
+                'quickReplies': [
+                    {
+                        "action": "block",
+                        "blockId": "616291e7c78e3769ca9a029e",
+                        "label": "홈"
                     }
                 ]
             }
