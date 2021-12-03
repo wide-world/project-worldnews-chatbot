@@ -25,9 +25,14 @@ def scrape_text(url,article):
     try:
         depth_1 = soup.find_all("div", attrs={"class": "zn-body__paragraph"})
         tmp=[]
+
         for news in depth_1:
             text=news.get_text().strip()
             tmp.append(text)
+        
+        if len(tmp) == 0:
+            tmp.append('Failed to get content!')
+        
         tmp.append('\n')
         article.append(tmp)
     except:

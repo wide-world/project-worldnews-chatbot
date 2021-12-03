@@ -2,7 +2,7 @@ import translation_bbc
 import translation_cnn
 import translation_alj
 import translation_nhk
-import translation_euro
+#import translation_euro
 
 translation_bbc.run()
 translation_cnn.run()

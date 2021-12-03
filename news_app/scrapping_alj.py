@@ -18,7 +18,7 @@ def scrape_content(link, article):
     soup = create_soup(link)
     tmp=[]
     try:
-        news_content = soup.find("div", attrs={"class" : "wysiwyg wysiwyg--all-content css-1vsenwb"}).find_all("p")       
+        news_content = soup.find("div", attrs={"class" : "wysiwyg wysiwyg--all-content css-1rs51r5"}).find_all("p")       
         
         for news in news_content:
             text = news.get_text().strip()
