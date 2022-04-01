@@ -18,7 +18,7 @@ def scrape_content(link, article):
     soup = create_soup(link)
     news_content = soup.find("div", attrs={"class" : "js-responsive-iframes-container"}).find_all("p")
     tmp=[]
-    for index, news in enumerate(news_content):
+    for news in enumerate(news_content):
         text = news.get_text().strip()
         tmp.append(text)
     tmp.append('\n')
@@ -35,7 +35,7 @@ def scrape_news():
     news_link=[]
     image_link=[]
     article=[]
-    for index, news in enumerate(news_list):
+    for news in enumerate(news_list):
         title = news.find("a")["title"]
         link = url.replace('/programs/world', '') + news.find("a")["href"]
         scrape_image_link(link, image_link)
