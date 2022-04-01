@@ -46,7 +46,7 @@ def scrape_content(link, article):
     soup = create_soup(link)
     news_content = soup.find("article", attrs={"class" : "ssrcss-1mc1y2-ArticleWrapper e1nh2i2l6"}).find_all("p", attrs={"class" : "ssrcss-1q0x1qg-Paragraph eq5iqo00"})
     tmp=[]
-    for index, news in enumerate(news_content):
+    for news in enumerate(news_content):
         text = news.get_text().strip()
         tmp.append(text)
     tmp.append('\n')
@@ -63,7 +63,7 @@ def scrape_news():
     arr=[]
     image_link=[]
     article=[]
-    for index, news in enumerate(news_list):
+    for news in enumerate(news_list):
         title = news.find("a").get_text().strip()
         link = url.replace('/news', '')+news.find("a")["href"]
         scrape_image_link(link, image_link)
